@@ -1,3 +1,6 @@
 [submodule "go-ethereum"]
 	path = go-ethereum
 	url = git@github.com:FraktalLabs/go-ethereum.git
+[submodule "solidity"]
+	path = solidity
+	url = git@github.com:FraktalLabs/solidity.git
