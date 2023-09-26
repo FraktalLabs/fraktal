@@ -19,19 +19,13 @@ contract Test {
       mstore(0x00, 0x42)
     }
 
-    assembly {
-      function tester() {
-        mstore(0x00, 0x32)
-      }
-
-      spawn(tester())
-
-      mstore(0x00, 0x33)
-    }
+    yield();
 
     assembly {
       mstore(0x00, 0x43)
     }
+
+    test(0x32);
 
     emit Log(value);
   }
