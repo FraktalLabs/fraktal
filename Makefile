@@ -9,8 +9,5 @@ build-contracts:
 deploy-contracts:
 	cd contracts && SEQUENCER_ADDRESS=${SEQUENCER_ADDRESS} make deploy-contracts
 
-FUNC_SIG ?= $(shell cast sig 'main()')
-CONTRACT_ADDRESS ?= $(shell cat contracts/builds/test-address.txt | jq -r '.address')
-
-call-contract:
-	FUNC_SIG=${FUNC_SIG} CONTRACT_ADDRESS=${CONTRACT_ADDRESS} SEQUENCER_ADDRESS=${SEQUENCER_ADDRESS} ./scripts/call-contract.sh
+test-contracts:
+	cd contracts && make test-contracts

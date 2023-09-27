@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract Test {
+contract Test2 {
   event Log(uint256);
 
   function test(uint256 _value) public {

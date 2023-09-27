@@ -40,3 +40,5 @@ echo $JSON > $TMP_SEND_TX
 RES=$(curl -H "Content-Type: application/json" -X POST --data @$TMP_SEND_TX $RPC | jq -r '.result')
 
 echo $RES | jq -r '.'
+
+rm $TMP_SEND_TX
