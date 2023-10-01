@@ -9,6 +9,9 @@ build-contracts:
 deploy-contracts:
 	cd contracts && SEQUENCER_ADDRESS=${SEQUENCER_ADDRESS} make deploy-contracts
 
+call-main:
+	cd contracts && SEQUENCER_ADDRESS=${SEQUENCER_ADDRESS} make call-main
+
 test-contracts:
 	cd contracts && make test-contracts
 
