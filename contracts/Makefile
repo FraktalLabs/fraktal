@@ -11,4 +11,5 @@ test-contracts:
 	@echo "Testing contracts.."
 	./test/scripts/test-asm.sh
 	./test/scripts/test-yul.sh
-	./test/scripts/test-sol.sh
+	./test/scripts/test-yield-sol.sh
+	./test/scripts/test-spawn-sol.sh

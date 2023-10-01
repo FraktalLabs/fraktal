@@ -19,20 +19,23 @@ JUMP
 JUMPDEST
 
 ;; Spawn the function w/ value 0x42
-PUSH 0x22
+PUSH 0x1d
 PUSH 0x42
 PUSH 0x03
 SPAWN
 ;; Pop off args and jump dest
 POP
 POP
+;; Setup to stop at end of spawn'd function execution but continue on spawn call
+PUSH 0x1f
+JUMP
+JUMPDEST
+STOP
+JUMPDEST
 
 ;; Call the function w/ value 0x52
-PUSH 0x21
+PUSH 0x27
 PUSH 0x52
 PUSH 0x03
 JUMP
-JUMPDEST
-
-;; EOP
 JUMPDEST

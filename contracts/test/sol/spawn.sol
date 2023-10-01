@@ -19,7 +19,7 @@ contract Test {
       mstore(0x00, 0x42)
     }
 
-    spawn test(value);
+    spawn test(0x32);
 
     assembly {
       mstore(0x00, 0x43)

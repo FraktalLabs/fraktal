@@ -11,3 +11,11 @@ deploy-contracts:
 
 test-contracts:
 	cd contracts && make test-contracts
+
+build-solidity:
+	cd solidity && ./scripts/build.sh
+
+build-go-ethereum:
+	cd go-ethereum && make all
+
+build-submodules: build-go-ethereum build-solidity build-contracts

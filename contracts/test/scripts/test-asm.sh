@@ -43,5 +43,5 @@ echo "Tests :"
 echo ""
 echo "Checking Yield contract bytecode segment '600d602052fc7f4865' : " $(echo "${YIELD_BYTECODE}" | grep -q "600d602052fc7f4865" && echo "PASS" || echo "FAIL")
 echo "Checking Yield contract output : " $(echo "${YIELD_OUT}" | grep -qz "${EXPECTED_YIELD_OUT}" && echo "PASS" || echo "FAIL")
-echo "Checking Spawn contract bytecode segment '5b602260426003fb50506021' : " $(echo "${SPAWN_BYTECODE}" | grep -q "5b602260426003fb50506021" && echo "PASS" || echo "FAIL")
+echo "Checking Spawn contract bytecode segment '5b601d60426003fb5050601f565b005b' : " $(echo "${SPAWN_BYTECODE}" | grep -q "5b601d60426003fb5050601f565b005b" && echo "PASS" || echo "FAIL")
 echo "Checking Spawn contract output : " $(echo "${SPAWN_OUT}" | grep -qz "${EXPECTED_SPAWN_OUT}" && echo "PASS" || echo "FAIL")
