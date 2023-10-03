@@ -22,3 +22,6 @@ build-go-ethereum:
 	cd go-ethereum && make all
 
 build-submodules: build-go-ethereum build-solidity build-contracts
+
+clean:
+	rm -rf contracts/builds/
