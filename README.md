@@ -1,9 +1,7 @@
 # Fraktal
 --------
 
-Fraktal is still in the R & D stages, but the high level goal is to create a set of blockchain protocols to support fractal scaling, ephemeral chains, modern programming interfaces, and private networks.
-
-Focused on staying EVM compatible while still adding features on top to support scaling, gaming use cases, user chains, and more.
+Fraktal is still in the R & D stages, but the high level goal is to create a set of blockchain protocols to support fractal scaling, ephemeral chains, modern programming interfaces, gaming use cases, and private/user chains. One main focus is to remain EVM compatible while building a superset of protocols / features.
 
 ---
 
@@ -74,9 +72,9 @@ spawn(func1(0x42))
 ## Channels
 
 ### In the EVM
-Channels allows for easy communication between Threads of Computation ( or Coroutines ). This is done by giving coroutines the ability to send & receive messages with channels. Channels are a bit more complex than Coroutines, but through the opcodes `CHANCREATE`, `CHANSEND`, and `CHANRECV` coroutines can be managed by these channels and messages can be sent between running routines.
+Channels allows for easy communication between Threads of Computation ( or Coroutines ). This is done by giving coroutines the ability to send & receive messages with channels. Channels are a bit more complex than Coroutines, but through the opcodes `CHANCREATE`, `CHANSEND`, and `CHANRECV`, messages can be sent between running routines and coroutines can be managed by these channels.
 
-Channels were implemented using similar logic to this article https://abhinavsarkar.net/posts/implementing-co-4/. Channels are stored inside the `ScopeContext` and are indexed by id in the `Channels` array. After creating a channel with `CHANCREATE` & giving it a buffer size, any executing coroutine can send and receive messages to and from the channel with `CHANSEND` and `CHANRECV`.j-
+Channels were implemented using similar logic to this article https://abhinavsarkar.net/posts/implementing-co-4/. Channels are stored inside the `ScopeContext` and are indexed by id in the `Channels` array. After creating a channel with `CHANCREATE` & giving it a buffer size, any executing coroutine can send and receive messages to and from the channel with `CHANSEND` and `CHANRECV`.
 
 ### In Solidity / Yul
 To use channels more easily in a smart contract you can use them in solidity like :
@@ -103,7 +101,7 @@ function main() external {
 
 Or in Yul like :
 ```
-chancreate(4)
+chanId := chancreate(4)
 chansend(chanId, val)
 val = chanrecv(chanId)
 ```
@@ -111,7 +109,7 @@ val = chanrecv(chanId)
 ## Console Log
 
 ### In the EVM
-Added opcode to support log.Println to the console / node from string in EVM memory. Uses the same syntax / encoding as Solidity with memory strings, and takes a pointer to the string's length in memory of the stack as an argument.
+Added opcode to support printing to the console / node from a string in EVM memory. Uses the same syntax / encoding as Solidity with memory strings, and takes a pointer to the string's length in memory of the stack as an argument.
 
 This is done through the `CLOG` opcode and makes testing and development a lot easier and more friendly when using `go-ethereum/build/bin/evm`.
 
