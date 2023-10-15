@@ -1,0 +1,28 @@
+name: Fraktal Actions
+run-name: ${{ github.actor }} is Running Actions to Test Fraktal Nodes
+on:
+  push:
+    paths:
+      - "**"
+      - ".github/workflows/fraktal-actions.yml"
+jobs:
+  Run-Fraktal-Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses : actions/checkout@v3
+        with:
+          submodules: 'true'
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.20'
+      
+      - name: Build Submodules
+        run: make build-submodules
+
+      - name: Run PrintNumbers Contract to test Coroutines
+        run: CONTRACT_INPUT=0xdffeadd0 ./scripts/run-evm-contract.sh contracts/contracts/PrintNumbers.sol
+
+      - name: Run PubSub Contract to test Channels
+        run: CONTRACT_INPUT=0xdffeadd0 ./scripts/run-evm-contract.sh contracts/contracts/PubSub.sol
