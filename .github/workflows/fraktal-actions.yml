@@ -19,7 +19,7 @@ jobs:
           go-version: '1.20'
 
       - name: Install boost
-        run: sudo apt-get -y install libboost-dev
+        run: sudo apt-get -y install libboost-all-dev libboost-filesystem-dev
       
       - name: Build Submodules
         run: make build-submodules
