@@ -1,7 +1,19 @@
 SEQUENCER_ADDRESS ?= $(shell cat ~/fraktal-data/keystore/UTC* | jq -r '.address')
 
-launch-fraktal:
-	./scripts/run-fraktal.sh
+all: build-submodules
+
+generate-account:
+	./scripts/generate-account.sh -d ${HOME}/fraktal-data/ -x
+
+launch-fraktal: generate-account
+	./scripts/run-fraktal.sh -d ${HOME}/fraktal-data/ -x
+
+launch-filestore:
+	#TODO: run filestore in background w/ fraktal node
+	go run cmd/filestore/filestore.go serve --dataDir ${HOME}/fraktal-data/
+
+launch-web-server:
+	go run cmd/web-server/web-server.go --filestore ${HOME}/fraktal-data/filestore/
 
 build-contracts:
 	cd contracts && make build-contracts
@@ -24,4 +36,4 @@ build-go-ethereum:
 build-submodules: build-go-ethereum build-solidity build-contracts
 
 clean:
-	rm -rf contracts/builds/
+	cd contracts && make clean
