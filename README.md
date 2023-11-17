@@ -132,7 +132,7 @@ clog(stringPtr/LengthPos)
 
 
 ## Future features
-- filestore
+- filestore & BitTorrent option?
 - oracle(s)
 - cross contract channels & coroutines
 - Ephemeral & Distributed storage, nodes, and environments
