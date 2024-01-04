@@ -4,3 +4,21 @@
 [submodule "solidity"]
 	path = solidity
 	url = git@github.com:FraktalLabs/solidity.git
+[submodule "intx"]
+  path = fraktal-vm/intx
+  url = git@github.com:chfast/intx.git
+[submodule "ethash"]
+  path = fraktal-vm/ethash
+  url = git@github.com:chfast/ethash.git
+[submodule "evm-cpp-utils"]
+  path = fraktal-vm/evm-cpp-utils
+  url = git@github.com:FraktalLabs/evm-cpp-utils.git
+[submodule "proc-evm"]
+  path = fraktal-vm/proc-evm
+  url = git@github.com:FraktalLabs/proc-evm.git
+[submodule "fraktal-state-db"]
+  path = fraktal-vm/fraktal-state-db
+  url = git@github.com:FraktalLabs/fraktal-state-db.git
+[submodule "fraktal-vm"]
+  path = fraktal-vm/fraktal-vm
+  url = git@github.com:FraktalLabs/fraktal-vm.git
