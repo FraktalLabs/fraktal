@@ -11,3 +11,15 @@ build:
 	cd fraktal-state-db && make all
 	# Build fraktal-vm
 	cd fraktal-vm && make all
+
+clean:
+	# Clean intx
+	cd intx && rm -rf build
+	# Clean ethash
+	cd ethash && rm -rf build
+	# Clean proc-evm
+	cd proc-evm && make clean
+	# Clean fraktal-state-db
+	cd fraktal-state-db && make clean
+	# Clean fraktal-vm
+	cd fraktal-vm && make clean
